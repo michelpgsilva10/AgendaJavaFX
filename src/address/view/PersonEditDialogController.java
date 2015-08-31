@@ -2,7 +2,6 @@ package address.view;
 
 import address.model.Person;
 import address.util.DateUtil;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;

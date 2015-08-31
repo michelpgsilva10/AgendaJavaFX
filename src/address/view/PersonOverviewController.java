@@ -1,10 +1,11 @@
 package address.view;
 
-import java.nio.charset.MalformedInputException;
 
 import address.MainApp;
 import address.model.Person;
 import address.util.DateUtil;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -56,7 +57,13 @@ public class PersonOverviewController {
         
        showPersonDetails(null);
        
-       personTable.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showPersonDetails(newValue));
+       personTable.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Person>() {
+       @Override
+		   public void changed(ObservableValue<? extends Person> observable, Person oldValue, Person newValue) {
+	    	   // TODO Auto-generated method stub
+    	   		showPersonDetails(newValue);
+		   }
+       });
     }
 
     /**
